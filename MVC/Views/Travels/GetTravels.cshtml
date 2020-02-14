@@ -1,0 +1,88 @@
+﻿
+@{
+    ViewBag.Title = "GetTravels";
+}
+
+<h2>Using ViewData</h2>
+
+<table cellpadding="20" border="1">
+    <tr>
+        <th>Travels name</th>
+        <th>Travels Id</th>
+        <th>Travels source</th>
+        <th>Travels destination</th>
+    </tr>
+    @foreach (Travels.entity.TravelsProperty items in ViewBag.travels)
+    {
+        <tr>
+            <td>
+                @items.TravelsName
+            </td>
+            <td>
+                @items.TravelsId
+            </td>
+            <td>
+                @items.TravelsSource
+            </td>
+            <td>
+                @items.TravelsDestination
+            </td>
+        </tr>
+    }
+</table>
+
+<h2>Using ViewBag</h2>
+
+<table cellpadding="20" border="1">
+    <tr>
+        <th>Travels name</th>
+        <th>Travels Id</th>
+        <th>Travels source</th>
+        <th>Travels destination</th>
+    </tr>
+    @foreach (Travels.entity.TravelsProperty items in (IEnumerable<Travels.entity.TravelsProperty>)ViewData["travels"])
+    {
+        <tr>
+            <td>
+                @items.TravelsName
+            </td>
+            <td>
+                @items.TravelsId
+            </td>
+            <td>
+                @items.TravelsSource
+            </td>
+            <td>
+                @items.TravelsDestination
+            </td>
+        </tr>
+    }
+</table>
+
+<h2>Using temp data</h2>
+<table cellpadding="20" border="1">
+    <tr>
+        <th>Travels name</th>
+        <th>Travels Id</th>
+        <th>Travels source</th>
+        <th>Travels destination</th>
+    </tr>
+
+    @foreach (Travels.entity.TravelsProperty items in(IEnumerable<Travels.entity.TravelsProperty>)TempData["travels"])
+    {
+        <tr>
+            <td>
+                @items.TravelsName
+            </td>
+            <td>
+                @items.TravelsId
+            </td>
+            <td>
+                @items.TravelsSource
+            </td>
+            <td>
+                @items.TravelsDestination
+            </td>
+        </tr>
+    }
+</table>
